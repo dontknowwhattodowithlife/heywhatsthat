@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang web</title>
+
+    <style>
+        /* ===== NỀN ===== */
+        body {
+            margin: 0;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ===== KHUNG ẢNH ===== */
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        /* ===== ẢNH ===== */
+        .bounce-img {
+            width: 500px; /* chỉnh kích thước tại đây */
+            animation: bounce 0.8s infinite;
+        }
+
+        /* ===== HIỆU ỨNG NẢY ===== */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-50px); }
+        }
+
+        /* ===== NHẠC ===== */
+        audio {
+            display: none; /* ẩn player */
+        }
+
+        /* ===== NÚT (MẶC ĐỊNH: GÓC TRÁI TRÊN) ===== */
+        .hidden-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+
+            width: 120px;
+            height: 50px;
+
+            background: white; /* cùng màu nền để ẩn */
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ===== KHI MÀN HÌNH NHỎ ===== */
+        @media (max-width: 600px) {
+            .hidden-button {
+                position: absolute; /* chuyển theo ảnh */
+                bottom: -50px;
+                left: 50%;
+                transform: translateX(-50%);
+
+                width: 60px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NHẠC NỀN ===== -->
+    <audio id="bg-music" loop>
+        <source src="Never Gonna Give You Up.mp3" type="audio/mpeg">
+        <!-- thay file nhạc tại đây -->
+    </audio>
+
+    <!-- ===== NỘI DUNG ===== -->
+    <div class="container">
+        <!-- ẢNH -->
+        <img src="háh.png" class="bounce-img">
+        <!-- thay ảnh tại đây -->
+
+        <!-- NÚT ẨN -->
+        <button class="hidden-button" onclick="goToLink()"></button>
+    </div>
+
+    <script>
+        /* ===== LINK CHUYỂN TRANG ===== */
+        function goToLink() {
+            window.location.href = "https://cdn.discordapp.com/attachments/1361032032175783989/1488870195761254440/Untitled668_20260401185757.png?ex=69ce59ec&is=69cd086c&hm=edb66206b7e9202430b507f4d41c301a07332899a2f2df0071e0cb92f77a46c6"; 
+            // thay link tại đây
+        }
+
+        /* ===== PHÁT NHẠC SAU KHI CLICK (TRÁNH BỊ CHẶN) ===== */
+        document.body.addEventListener("click", function () {
+            const music = document.getElementById("bg-music");
+            music.play();
+        }, { once: true });
+    </script>
+
+</body>
+</html>
